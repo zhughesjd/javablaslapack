@@ -4,17 +4,16 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 
-import net.joshuahughes.jnablaslapack.CHARACTER;
-import net.joshuahughes.jnablaslapack.DOUBLE;
-import net.joshuahughes.jnablaslapack.INTEGER;
-import net.joshuahughes.jnablaslapack.LOGICAL;
-import net.joshuahughes.jnablaslapack.REAL;
-
 import org.antlr.runtime.Token;
 import org.antlr.v4.runtime.misc.Pair;
 
 import fortran.ofp.parser.java.FortranParserActionNull;
 import fortran.ofp.parser.java.IFortranParser;
+import net.joshuahughes.jnablaslapack.pointer.CHARACTER;
+import net.joshuahughes.jnablaslapack.pointer.DOUBLE;
+import net.joshuahughes.jnablaslapack.pointer.INTEGER;
+import net.joshuahughes.jnablaslapack.pointer.LOGICAL;
+import net.joshuahughes.jnablaslapack.pointer.REAL;
 
 public class JNAAction extends FortranParserActionNull {
 	LinkedHashMap<String,Pair<String,Boolean>> map = new LinkedHashMap<>();
