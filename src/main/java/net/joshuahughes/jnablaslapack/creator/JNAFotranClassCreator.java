@@ -68,6 +68,7 @@ public class JNAFotranClassCreator {
 						writer.write(cLine+"<br>\n");
 					writer.write("*/\n");
 				}
+//				FrontEnd.main(new String[]{"--dump",validFile.getAbsolutePath()});
 				FrontEnd.main(new String[]{"--class",JNAAction.class.getName(),validFile.getAbsolutePath()});
 			}
 		}

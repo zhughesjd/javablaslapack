@@ -62,17 +62,17 @@ public class JNAAction extends FortranParserActionNull {
 		if(argNameList.contains(candidate) && !map.containsKey(candidate))
 			map.put(candidate, new Pair<>(latestType,hasArraySpec));
 	}
-	public void end_of_file(String filename, String path) {
+	public void end() {
 		try {
 			JNAFotranClassCreator.writer.write("\tpublic "+returnByValue(subprogramReturnType)+" "+subprogramName.toLowerCase()+"_(");
 			boolean initial = true;
 			for(String name : argNameList)
-			if(map.containsKey(name)){
-				Pair<String,Boolean> pair = map.get(name);
-				JNAFotranClassCreator.writer.write((initial?"":",")+passByReference(pair.a,pair.b)+" "+name);
-				initial = false;
-				
-			}
+				if(map.containsKey(name)){
+					Pair<String,Boolean> pair = map.get(name);
+					JNAFotranClassCreator.writer.write((initial?"":",")+passByReference(pair.a,pair.b)+" "+name);
+					initial = false;
+
+				}
 			JNAFotranClassCreator.writer.write(");\n");
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
@@ -83,6 +83,14 @@ public class JNAAction extends FortranParserActionNull {
 		argNameList.clear();
 		endOfArgs = false;
 	}
+	public void end_subroutine_stmt(Token label, Token keyword1, 
+			Token keyword2, Token name, Token eos) {
+		end();
+	}
+	public void end_function_stmt(Token label, Token keyword1, Token keyword2, 
+			Token name, Token eos) {
+		end();
+	}
 	public static String returnByValue(String returnType)
 	{
 		if("LOGICAL".equals(returnType)) return boolean.class.getSimpleName();
@@ -90,7 +98,7 @@ public class JNAAction extends FortranParserActionNull {
 		if("CHARACTER".equals(returnType)) return char.class.getSimpleName();
 		if("REAL".equals(returnType)) return float.class.getSimpleName();
 		if("DOUBLE".equals(returnType)) return double.class.getSimpleName();
-		
+
 		if("COMPLEX".equals(returnType)) return "float[]";
 		if("DOUBLECOMPLEX".equals(returnType)) return "double[]";
 		return void.class.getSimpleName();
