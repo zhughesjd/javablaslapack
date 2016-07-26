@@ -4,31 +4,38 @@ import java.io.IOException;
 import java.util.LinkedHashMap;
 import java.util.LinkedHashSet;
 
+import net.joshuahughes.jnablaslapack.pointer.CHARACTER;
+import net.joshuahughes.jnablaslapack.pointer.COMPLEX;
+import net.joshuahughes.jnablaslapack.pointer.COMPLEX16;
+import net.joshuahughes.jnablaslapack.pointer.COMPLEX8;
+import net.joshuahughes.jnablaslapack.pointer.DOUBLE;
+import net.joshuahughes.jnablaslapack.pointer.DOUBLECOMPLEX;
+import net.joshuahughes.jnablaslapack.pointer.INTEGER;
+import net.joshuahughes.jnablaslapack.pointer.LOGICAL;
+import net.joshuahughes.jnablaslapack.pointer.REAL;
+
 import org.antlr.runtime.Token;
 import org.antlr.v4.runtime.misc.Pair;
 
 import fortran.ofp.parser.java.FortranParserActionNull;
 import fortran.ofp.parser.java.IFortranParser;
-import net.joshuahughes.jnablaslapack.pointer.CHARACTER;
-import net.joshuahughes.jnablaslapack.pointer.DOUBLE;
-import net.joshuahughes.jnablaslapack.pointer.INTEGER;
-import net.joshuahughes.jnablaslapack.pointer.LOGICAL;
-import net.joshuahughes.jnablaslapack.pointer.REAL;
 
 public class JNAAction extends FortranParserActionNull {
-	LinkedHashMap<String,Pair<String,Boolean>> map = new LinkedHashMap<>();
+	LinkedHashMap<String,Pair<Class<?>,Boolean>> map = new LinkedHashMap<>();
 	boolean endOfArgs = false;
-	String latestType;
+	Class<?> latestType;
 	LinkedHashSet<String> argNameList = new LinkedHashSet<>();
 	private String subprogramName;
-	private String subprogramReturnType;
+	private Class<?> subprogramReturnType;
+	boolean hasKindSelector = false;
 	public JNAAction(String[] arg0, IFortranParser arg1, String arg2) {
 		super(arg0, arg1, arg2);
 	}
 	public void intrinsic_type_spec(Token keyword1, Token keyword2,
 			int type, boolean hasKindSelector)
 	{
-		latestType = keyword1.getText();
+		latestType = convert(keyword1.getText());
+		this.hasKindSelector = hasKindSelector;
 	}
 	public void generic_name_list_part(Token id)
 	{
@@ -60,15 +67,15 @@ public class JNAAction extends FortranParserActionNull {
 	{
 		String candidate = id.getText();
 		if(argNameList.contains(candidate) && !map.containsKey(candidate))
-			map.put(candidate, new Pair<>(latestType,hasArraySpec));
+			map.put(candidate, new Pair<>(latestType, hasArraySpec||hasKindSelector));
 	}
 	public void end() {
 		try {
-			JNAFotranClassCreator.writer.write("\tpublic "+returnByValue(subprogramReturnType)+" "+subprogramName.toLowerCase()+"_(");
+			JNAFotranClassCreator.writer.write("\tpublic "+returnByValue(subprogramReturnType).getSimpleName()+" "+subprogramName.toLowerCase()+"_(");
 			boolean initial = true;
 			for(String name : argNameList)
 				if(map.containsKey(name)){
-					Pair<String,Boolean> pair = map.get(name);
+					Pair<Class<?>,Boolean> pair = map.get(name);
 					JNAFotranClassCreator.writer.write((initial?"":",")+passByReference(pair.a,pair.b)+" "+name);
 					initial = false;
 
@@ -91,45 +98,51 @@ public class JNAAction extends FortranParserActionNull {
 			Token name, Token eos) {
 		end();
 	}
-	public static String returnByValue(String returnType)
+	public static Class<?> convert(String string)
 	{
-		if("LOGICAL".equals(returnType)) return boolean.class.getSimpleName();
-		if("INTEGER".equals(returnType)) return int.class.getSimpleName();
-		if("CHARACTER".equals(returnType)) return char.class.getSimpleName();
-		if("REAL".equals(returnType)) return float.class.getSimpleName();
-		if("DOUBLE".equals(returnType)) return double.class.getSimpleName();
-
-		if("COMPLEX".equals(returnType)) return "float[]";
-		if("DOUBLECOMPLEX".equals(returnType)) return "double[]";
-		return void.class.getSimpleName();
+		for(Class<?> clazz : new Class<?>[]{LOGICAL.class,INTEGER.class,CHARACTER.class,REAL.class,DOUBLE.class,COMPLEX.class,DOUBLECOMPLEX.class})
+			if(clazz.getSimpleName().equals(string))
+				return clazz;
+		return null;
 	}
-	public static String passByReference(String fortranType, boolean isArray)
+	public static Class<?> returnByValue(Class<?> fortranType)
 	{
-		String ref = void.class.getSimpleName();
-		if("COMPLEX".equals(fortranType) || ("REAL".equals(fortranType) && isArray))
+		if(LOGICAL.class.equals(fortranType)) return boolean.class;
+		if(INTEGER.class.equals(fortranType)) return int.class;
+		if(CHARACTER.class.equals(fortranType)) return char.class;
+		if(REAL.class.equals(fortranType)) return float.class;
+		if(DOUBLE.class.equals(fortranType)) return double.class;
+		if(COMPLEX.class.equals(fortranType)) return COMPLEX8.class;
+		if(DOUBLECOMPLEX.class.equals(fortranType)) return COMPLEX16.class;
+		return void.class;
+	}
+	public static String passByReference(Class<?> fortranType, boolean isArray)
+	{
+		Class<?> ref = void.class;
+		if(COMPLEX.class.equals(fortranType) || (REAL.class.equals(fortranType) && isArray))
 		{
 			isArray = true;
-			ref = float.class.getSimpleName();
+			ref = float.class;
 		}
-		else if("DOUBLECOMPLEX".equals(fortranType) || ("DOUBLE".equals(fortranType) && isArray))
+		else if(DOUBLECOMPLEX.class.equals(fortranType) || (DOUBLE.class.equals(fortranType) && isArray))
 		{
 			isArray = true;
-			ref = double.class.getSimpleName();
+			ref = double.class;
 		}
 		else if(isArray)
 		{
-			if("LOGICAL".equals(fortranType)) return boolean.class.getSimpleName();
-			if("INTEGER".equals(fortranType)) ref = int.class.getSimpleName();
-			if("CHARACTER".equals(fortranType)) ref = char.class.getSimpleName();
-			if("REAL".equals(fortranType)) ref = float.class.getSimpleName();
-			if("DOUBLE".equals(fortranType)) ref = double.class.getSimpleName();
+			if(LOGICAL.class.equals(fortranType)) ref = boolean.class;
+			if(INTEGER.class.equals(fortranType)) ref = int.class;
+			if(CHARACTER.class.equals(fortranType)) ref = char.class;
+			if(REAL.class.equals(fortranType)) ref = float.class;
+			if(DOUBLE.class.equals(fortranType)) ref = double.class;
 		}
 		else
 		{
 			for(Class<?> clazz : new Class[]{CHARACTER.class,REAL.class,INTEGER.class,LOGICAL.class,DOUBLE.class})
-				if(clazz.getSimpleName().equals(fortranType)) 
-					ref = clazz.getSimpleName();
+				if(clazz.equals(fortranType)) 
+					ref = clazz;
 		}
-		return ref+(isArray?"[]":"");
+		return ref.getSimpleName()+(isArray?"[]":"");
 	}
 }

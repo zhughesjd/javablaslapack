@@ -4,7 +4,7 @@ import com.sun.jna.ptr.ByReference;
 
 public class CHARACTER extends ByReference{
 	public CHARACTER() {
-		super(Character.BYTES);
+		super(Byte.BYTES);
 	}
 	public CHARACTER(char character)
 	{
