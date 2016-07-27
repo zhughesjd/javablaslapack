@@ -17446,7 +17446,7 @@ public interface LapackCL extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public float cla_herpvgrw_(char[] UPLO,INTEGER N,INTEGER INFO,float[] A,INTEGER LDA,float[] AF,INTEGER LDAF,int[] IPIV,float[] WORK);
+	public float cla_herpvgrw_(byte[] UPLO,INTEGER N,INTEGER INFO,float[] A,INTEGER LDA,float[] AF,INTEGER LDAF,int[] IPIV,float[] WORK);
 /**
 *> \brief \b CLA_LIN_BERR computes a component-wise relative backward error.<br>
 *<br>
@@ -18302,7 +18302,7 @@ public interface LapackCL extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public float cla_porpvgrw_(char[] UPLO,INTEGER NCOLS,float[] A,INTEGER LDA,float[] AF,INTEGER LDAF,float[] WORK);
+	public float cla_porpvgrw_(byte[] UPLO,INTEGER NCOLS,float[] A,INTEGER LDA,float[] AF,INTEGER LDAF,float[] WORK);
 /**
 *> \brief \b CLA_SYAMV computes a matrix-vector product using a symmetric indefinite matrix to calculate error bounds.<br>
 *<br>
@@ -19276,7 +19276,7 @@ public interface LapackCL extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public float cla_syrpvgrw_(char[] UPLO,INTEGER N,INTEGER INFO,float[] A,INTEGER LDA,float[] AF,INTEGER LDAF,int[] IPIV,float[] WORK);
+	public float cla_syrpvgrw_(byte[] UPLO,INTEGER N,INTEGER INFO,float[] A,INTEGER LDA,float[] AF,INTEGER LDAF,int[] IPIV,float[] WORK);
 /**
 *> \brief \b CLA_WWADDW adds a vector into a doubled-single vector.<br>
 *<br>

@@ -5707,7 +5707,7 @@ public interface LapackZG extends Library
 *><br>
 *  =====================================================================<br>
 */
-	public void zgejsv_(char[] JOBA,char[] JOBU,char[] JOBV,char[] JOBR,char[] JOBT,char[] JOBP,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] SVA,double[] U,INTEGER LDU,double[] V,INTEGER LDV,double[] CWORK,INTEGER LWORK,double[] RWORK,INTEGER LRWORK,int[] IWORK,INTEGER INFO);
+	public void zgejsv_(byte[] JOBA,byte[] JOBU,byte[] JOBV,byte[] JOBR,byte[] JOBT,byte[] JOBP,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] SVA,double[] U,INTEGER LDU,double[] V,INTEGER LDV,double[] CWORK,INTEGER LWORK,double[] RWORK,INTEGER LRWORK,int[] IWORK,INTEGER INFO);
 /**
 *> \brief \b ZGELQ2 computes the LQ factorization of a general rectangular matrix using an unblocked algorithm.<br>
 *<br>
@@ -10483,7 +10483,7 @@ public interface LapackZG extends Library
 *><br>
 *  =====================================================================<br>
 */
-	public void zgesvj_(char[] JOBA,char[] JOBU,char[] JOBV,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,double[] CWORK,INTEGER LWORK,double[] RWORK,INTEGER LRWORK,INTEGER INFO);
+	public void zgesvj_(byte[] JOBA,byte[] JOBU,byte[] JOBV,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,double[] CWORK,INTEGER LWORK,double[] RWORK,INTEGER LRWORK,INTEGER INFO);
 /**
 *> \brief <b> ZGESVX computes the solution to system of linear equations A * X = B for GE matrices</b><br>
 *<br>
@@ -16166,7 +16166,7 @@ public interface LapackZG extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void zgsvj0_(char[] JOBV,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] D,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,DOUBLE EPS,DOUBLE SFMIN,DOUBLE TOL,INTEGER NSWEEP,double[] WORK,INTEGER LWORK,INTEGER INFO);
+	public void zgsvj0_(byte[] JOBV,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] D,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,DOUBLE EPS,DOUBLE SFMIN,DOUBLE TOL,INTEGER NSWEEP,double[] WORK,INTEGER LWORK,INTEGER INFO);
 /**
 *> \brief \b ZGSVJ1 pre-processor for the routine zgesvj, applies Jacobi rotations targeting only particular pivots.<br>
 *<br>
@@ -16404,7 +16404,7 @@ public interface LapackZG extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void zgsvj1_(char[] JOBV,INTEGER M,INTEGER N,INTEGER N1,double[] A,INTEGER LDA,double[] D,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,DOUBLE EPS,DOUBLE SFMIN,DOUBLE TOL,INTEGER NSWEEP,double[] WORK,INTEGER LWORK,INTEGER INFO);
+	public void zgsvj1_(byte[] JOBV,INTEGER M,INTEGER N,INTEGER N1,double[] A,INTEGER LDA,double[] D,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,DOUBLE EPS,DOUBLE SFMIN,DOUBLE TOL,INTEGER NSWEEP,double[] WORK,INTEGER LWORK,INTEGER INFO);
 /**
 *> \brief \b ZGTCON<br>
 *<br>

@@ -24715,7 +24715,7 @@ public interface LapackDL extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public double dla_porpvgrw_(char[] UPLO,INTEGER NCOLS,double[] A,INTEGER LDA,double[] AF,INTEGER LDAF,double[] WORK);
+	public double dla_porpvgrw_(byte[] UPLO,INTEGER NCOLS,double[] A,INTEGER LDA,double[] AF,INTEGER LDAF,double[] WORK);
 /**
 *> \brief \b DLA_SYAMV computes a matrix-vector product using a symmetric indefinite matrix to calculate error bounds.<br>
 *<br>
@@ -25563,7 +25563,7 @@ public interface LapackDL extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public double dla_syrpvgrw_(char[] UPLO,INTEGER N,INTEGER INFO,double[] A,INTEGER LDA,double[] AF,INTEGER LDAF,int[] IPIV,double[] WORK);
+	public double dla_syrpvgrw_(byte[] UPLO,INTEGER N,INTEGER INFO,double[] A,INTEGER LDA,double[] AF,INTEGER LDAF,int[] IPIV,double[] WORK);
 /**
 *> \brief \b DLA_WWADDW adds a vector into a doubled-single vector.<br>
 *<br>

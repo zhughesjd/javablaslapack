@@ -81,7 +81,7 @@ public interface LapackXE extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void xerbla_(char[] SRNAME,INTEGER INFO);
+	public void xerbla_(byte[] SRNAME,INTEGER INFO);
 /**
 *> \brief \b XERBLA_ARRAY<br>
 *<br>
@@ -174,6 +174,6 @@ public interface LapackXE extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void xerbla_array_(char[] SRNAME_ARRAY,INTEGER SRNAME_LEN,INTEGER INFO);
+	public void xerbla_array_(byte[] SRNAME_ARRAY,INTEGER SRNAME_LEN,INTEGER INFO);
 
 }

@@ -558,7 +558,7 @@ public interface LapackIL extends Library
 *><br>
 *  =====================================================================<br>
 */
-	public int ilaenv_(INTEGER ISPEC,char[] NAME,char[] OPTS,INTEGER N1,INTEGER N2,INTEGER N3,INTEGER N4);
+	public int ilaenv_(INTEGER ISPEC,byte[] NAME,byte[] OPTS,INTEGER N1,INTEGER N2,INTEGER N3,INTEGER N4);
 /**
 *> \brief \b ILAPREC<br>
 *<br>

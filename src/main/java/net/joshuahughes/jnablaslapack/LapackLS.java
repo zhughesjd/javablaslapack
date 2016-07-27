@@ -85,6 +85,6 @@ public interface LapackLS extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public boolean lsamen_(INTEGER N,char[] CA,char[] CB);
+	public boolean lsamen_(INTEGER N,byte[] CA,byte[] CB);
 
 }

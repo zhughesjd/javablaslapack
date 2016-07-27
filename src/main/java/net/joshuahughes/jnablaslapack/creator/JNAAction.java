@@ -72,6 +72,7 @@ public class JNAAction extends FortranParserActionNull {
 	public void end() {
 		try {
 			JNAFotranClassCreator.writer.write("\tpublic "+returnByValue(subprogramReturnType).getSimpleName()+" "+subprogramName.toLowerCase()+"_(");
+			
 			boolean initial = true;
 			for(String name : argNameList)
 				if(map.containsKey(name)){
@@ -133,7 +134,7 @@ public class JNAAction extends FortranParserActionNull {
 		{
 			if(LOGICAL.class.equals(fortranType)) ref = boolean.class;
 			if(INTEGER.class.equals(fortranType)) ref = int.class;
-			if(CHARACTER.class.equals(fortranType)) ref = char.class;
+			if(CHARACTER.class.equals(fortranType)) ref = byte.class;
 			if(REAL.class.equals(fortranType)) ref = float.class;
 			if(DOUBLE.class.equals(fortranType)) ref = double.class;
 		}

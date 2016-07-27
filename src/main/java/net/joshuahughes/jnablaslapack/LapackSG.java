@@ -5745,7 +5745,7 @@ public interface LapackSG extends Library
 *><br>
 *  =====================================================================<br>
 */
-	public void sgejsv_(char[] JOBA,char[] JOBU,char[] JOBV,char[] JOBR,char[] JOBT,char[] JOBP,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] SVA,float[] U,INTEGER LDU,float[] V,INTEGER LDV,float[] WORK,INTEGER LWORK,int[] IWORK,INTEGER INFO);
+	public void sgejsv_(byte[] JOBA,byte[] JOBU,byte[] JOBV,byte[] JOBR,byte[] JOBT,byte[] JOBP,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] SVA,float[] U,INTEGER LDU,float[] V,INTEGER LDV,float[] WORK,INTEGER LWORK,int[] IWORK,INTEGER INFO);
 /**
 *> \brief \b SGELQ2 computes the LQ factorization of a general rectangular matrix using an unblocked algorithm.<br>
 *<br>
@@ -10448,7 +10448,7 @@ public interface LapackSG extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void sgesvj_(char[] JOBA,char[] JOBU,char[] JOBV,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,float[] WORK,INTEGER LWORK,INTEGER INFO);
+	public void sgesvj_(byte[] JOBA,byte[] JOBU,byte[] JOBV,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,float[] WORK,INTEGER LWORK,INTEGER INFO);
 /**
 *> \brief <b> SGESVX computes the solution to system of linear equations A * X = B for GE matrices</b><br>
 *<br>
@@ -16226,7 +16226,7 @@ public interface LapackSG extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void sgsvj0_(char[] JOBV,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] D,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,REAL EPS,REAL SFMIN,REAL TOL,INTEGER NSWEEP,float[] WORK,INTEGER LWORK,INTEGER INFO);
+	public void sgsvj0_(byte[] JOBV,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] D,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,REAL EPS,REAL SFMIN,REAL TOL,INTEGER NSWEEP,float[] WORK,INTEGER LWORK,INTEGER INFO);
 /**
 *> \brief \b SGSVJ1 pre-processor for the routine sgesvj, applies Jacobi rotations targeting only particular pivots.<br>
 *<br>
@@ -16464,7 +16464,7 @@ public interface LapackSG extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void sgsvj1_(char[] JOBV,INTEGER M,INTEGER N,INTEGER N1,float[] A,INTEGER LDA,float[] D,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,REAL EPS,REAL SFMIN,REAL TOL,INTEGER NSWEEP,float[] WORK,INTEGER LWORK,INTEGER INFO);
+	public void sgsvj1_(byte[] JOBV,INTEGER M,INTEGER N,INTEGER N1,float[] A,INTEGER LDA,float[] D,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,REAL EPS,REAL SFMIN,REAL TOL,INTEGER NSWEEP,float[] WORK,INTEGER LWORK,INTEGER INFO);
 /**
 *> \brief \b SGTCON<br>
 *<br>

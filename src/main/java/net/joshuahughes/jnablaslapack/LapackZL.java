@@ -17572,7 +17572,7 @@ public interface LapackZL extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public double zla_herpvgrw_(char[] UPLO,INTEGER N,INTEGER INFO,double[] A,INTEGER LDA,double[] AF,INTEGER LDAF,int[] IPIV,double[] WORK);
+	public double zla_herpvgrw_(byte[] UPLO,INTEGER N,INTEGER INFO,double[] A,INTEGER LDA,double[] AF,INTEGER LDAF,int[] IPIV,double[] WORK);
 /**
 *> \brief \b ZLA_LIN_BERR computes a component-wise relative backward error.<br>
 *<br>
@@ -18431,7 +18431,7 @@ public interface LapackZL extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public double zla_porpvgrw_(char[] UPLO,INTEGER NCOLS,double[] A,INTEGER LDA,double[] AF,INTEGER LDAF,double[] WORK);
+	public double zla_porpvgrw_(byte[] UPLO,INTEGER NCOLS,double[] A,INTEGER LDA,double[] AF,INTEGER LDAF,double[] WORK);
 /**
 *> \brief \b ZLA_SYAMV computes a matrix-vector product using a symmetric indefinite matrix to calculate error bounds.<br>
 *<br>
@@ -19407,7 +19407,7 @@ public interface LapackZL extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public double zla_syrpvgrw_(char[] UPLO,INTEGER N,INTEGER INFO,double[] A,INTEGER LDA,double[] AF,INTEGER LDAF,int[] IPIV,double[] WORK);
+	public double zla_syrpvgrw_(byte[] UPLO,INTEGER N,INTEGER INFO,double[] A,INTEGER LDA,double[] AF,INTEGER LDAF,int[] IPIV,double[] WORK);
 /**
 *> \brief \b ZLA_WWADDW adds a vector into a doubled-single vector.<br>
 *<br>

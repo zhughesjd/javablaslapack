@@ -5743,7 +5743,7 @@ public interface LapackDG extends Library
 *><br>
 *  =====================================================================<br>
 */
-	public void dgejsv_(char[] JOBA,char[] JOBU,char[] JOBV,char[] JOBR,char[] JOBT,char[] JOBP,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] SVA,double[] U,INTEGER LDU,double[] V,INTEGER LDV,double[] WORK,INTEGER LWORK,int[] IWORK,INTEGER INFO);
+	public void dgejsv_(byte[] JOBA,byte[] JOBU,byte[] JOBV,byte[] JOBR,byte[] JOBT,byte[] JOBP,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] SVA,double[] U,INTEGER LDU,double[] V,INTEGER LDV,double[] WORK,INTEGER LWORK,int[] IWORK,INTEGER INFO);
 /**
 *> \brief \b DGELQ2 computes the LQ factorization of a general rectangular matrix using an unblocked algorithm.<br>
 *<br>
@@ -10460,7 +10460,7 @@ public interface LapackDG extends Library
 *><br>
 *  =====================================================================<br>
 */
-	public void dgesvj_(char[] JOBA,char[] JOBU,char[] JOBV,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,double[] WORK,INTEGER LWORK,INTEGER INFO);
+	public void dgesvj_(byte[] JOBA,byte[] JOBU,byte[] JOBV,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,double[] WORK,INTEGER LWORK,INTEGER INFO);
 /**
 *> \brief <b> DGESVX computes the solution to system of linear equations A * X = B for GE matrices</b><br>
 *<br>
@@ -16235,7 +16235,7 @@ public interface LapackDG extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void dgsvj0_(char[] JOBV,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] D,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,DOUBLE EPS,DOUBLE SFMIN,DOUBLE TOL,INTEGER NSWEEP,double[] WORK,INTEGER LWORK,INTEGER INFO);
+	public void dgsvj0_(byte[] JOBV,INTEGER M,INTEGER N,double[] A,INTEGER LDA,double[] D,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,DOUBLE EPS,DOUBLE SFMIN,DOUBLE TOL,INTEGER NSWEEP,double[] WORK,INTEGER LWORK,INTEGER INFO);
 /**
 *> \brief \b DGSVJ1 pre-processor for the routine dgesvj, applies Jacobi rotations targeting only particular pivots.<br>
 *<br>
@@ -16473,7 +16473,7 @@ public interface LapackDG extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void dgsvj1_(char[] JOBV,INTEGER M,INTEGER N,INTEGER N1,double[] A,INTEGER LDA,double[] D,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,DOUBLE EPS,DOUBLE SFMIN,DOUBLE TOL,INTEGER NSWEEP,double[] WORK,INTEGER LWORK,INTEGER INFO);
+	public void dgsvj1_(byte[] JOBV,INTEGER M,INTEGER N,INTEGER N1,double[] A,INTEGER LDA,double[] D,double[] SVA,INTEGER MV,double[] V,INTEGER LDV,DOUBLE EPS,DOUBLE SFMIN,DOUBLE TOL,INTEGER NSWEEP,double[] WORK,INTEGER LWORK,INTEGER INFO);
 /**
 *> \brief \b DGTCON<br>
 *<br>

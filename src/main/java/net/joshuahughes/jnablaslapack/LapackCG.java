@@ -5713,7 +5713,7 @@ public interface LapackCG extends Library
 *><br>
 *  =====================================================================<br>
 */
-	public void cgejsv_(char[] JOBA,char[] JOBU,char[] JOBV,char[] JOBR,char[] JOBT,char[] JOBP,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] SVA,float[] U,INTEGER LDU,float[] V,INTEGER LDV,float[] CWORK,INTEGER LWORK,float[] RWORK,INTEGER LRWORK,int[] IWORK,INTEGER INFO);
+	public void cgejsv_(byte[] JOBA,byte[] JOBU,byte[] JOBV,byte[] JOBR,byte[] JOBT,byte[] JOBP,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] SVA,float[] U,INTEGER LDU,float[] V,INTEGER LDV,float[] CWORK,INTEGER LWORK,float[] RWORK,INTEGER LRWORK,int[] IWORK,INTEGER INFO);
 /**
 *> \brief \b CGELQ2 computes the LQ factorization of a general rectangular matrix using an unblocked algorithm.<br>
 *<br>
@@ -10476,7 +10476,7 @@ public interface LapackCG extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void cgesvj_(char[] JOBA,char[] JOBU,char[] JOBV,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,float[] CWORK,INTEGER LWORK,float[] RWORK,INTEGER LRWORK,INTEGER INFO);
+	public void cgesvj_(byte[] JOBA,byte[] JOBU,byte[] JOBV,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,float[] CWORK,INTEGER LWORK,float[] RWORK,INTEGER LRWORK,INTEGER INFO);
 /**
 *> \brief <b> CGESVX computes the solution to system of linear equations A * X = B for GE matrices</b><br>
 *<br>
@@ -16168,7 +16168,7 @@ public interface LapackCG extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void cgsvj0_(char[] JOBV,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] D,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,REAL EPS,REAL SFMIN,REAL TOL,INTEGER NSWEEP,float[] WORK,INTEGER LWORK,INTEGER INFO);
+	public void cgsvj0_(byte[] JOBV,INTEGER M,INTEGER N,float[] A,INTEGER LDA,float[] D,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,REAL EPS,REAL SFMIN,REAL TOL,INTEGER NSWEEP,float[] WORK,INTEGER LWORK,INTEGER INFO);
 /**
 *> \brief \b CGSVJ1 pre-processor for the routine cgesvj, applies Jacobi rotations targeting only particular pivots.<br>
 *<br>
@@ -16406,7 +16406,7 @@ public interface LapackCG extends Library
 *<br>
 *  =====================================================================<br>
 */
-	public void cgsvj1_(char[] JOBV,INTEGER M,INTEGER N,INTEGER N1,float[] A,INTEGER LDA,float[] D,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,REAL EPS,REAL SFMIN,REAL TOL,INTEGER NSWEEP,float[] WORK,INTEGER LWORK,INTEGER INFO);
+	public void cgsvj1_(byte[] JOBV,INTEGER M,INTEGER N,INTEGER N1,float[] A,INTEGER LDA,float[] D,float[] SVA,INTEGER MV,float[] V,INTEGER LDV,REAL EPS,REAL SFMIN,REAL TOL,INTEGER NSWEEP,float[] WORK,INTEGER LWORK,INTEGER INFO);
 /**
 *> \brief \b CGTCON<br>
 *<br>
