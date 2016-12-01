@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.github.zhughesjd</groupId>
 	<artifactId>javablaslapack</artifactId>
-	<version>0.0.1</version>
+	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 	<build>
 		<plugins>
@@ -18,6 +18,13 @@
 		</plugins>
 	</build>
 	<dependencies>
+		<dependency>
+		    <groupId>OpenFortranParser</groupId>
+		    <artifactId>fortran</artifactId>
+		    <version>1.0</version>
+		    <scope>system</scope>
+		    <systemPath>${project.basedir}/libs/OpenFortranParser-0.8.3.jar</systemPath>
+		</dependency>
 		<dependency>
 			<groupId>org.antlr</groupId>
 			<artifactId>antlr4</artifactId>
