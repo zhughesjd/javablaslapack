@@ -17,5 +17,16 @@
 		</attributes>
 	</classpathentry>
 	<classpathentry kind="lib" path="libs/OpenFortranParser-0.8.3.jar" sourcepath="libs/fortran-parser-0.8.3"/>
+	<classpathentry excluding="**" kind="src" output="target/classes" path="src/main/resources">
+		<attributes>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
+	<classpathentry kind="src" output="target/test-classes" path="src/test/java">
+		<attributes>
+			<attribute name="optional" value="true"/>
+			<attribute name="maven.pomderived" value="true"/>
+		</attributes>
+	</classpathentry>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

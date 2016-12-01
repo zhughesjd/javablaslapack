@@ -8,11 +8,12 @@ import java.io.FileWriter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
+import net.joshuahughes.jnablaslapack.pointer.REAL;
+
 import com.sun.jna.Library;
 import com.sun.jna.Native;
 
 import fortran.ofp.FrontEnd;
-import net.joshuahughes.jnablaslapack.pointer.REAL;
 
 public class JNAFotranClassCreator {
 	public static BufferedWriter writer;
