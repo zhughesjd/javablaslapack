@@ -43,7 +43,7 @@ public class Test {
 		System.err.println("BLAS time: " + ((System.currentTimeMillis()-time)/1000.0) + " sec");
 
 		COMPLEX16 dc = LapackZL.instance.zladiv_(new double[]{14,32},new double[]{7,8});
-		System.out.println(dc.re+":"+dc.im);
-		System.out.println((byte)LapackCH.instance.chla_transtype_(new INTEGER(0)));
+		System.out.println(dc.re+" : "+dc.im);
+		System.out.println(LapackIL.instance.iladiag_(new CHARACTER('c')));
 	}
 }

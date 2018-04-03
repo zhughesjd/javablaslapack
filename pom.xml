@@ -31,9 +31,9 @@
 			<version>4.5.3</version>
 		</dependency>
 		<dependency>
-			<groupId>jna</groupId>
+			<groupId>com.sun.jna</groupId>
 			<artifactId>jna</artifactId>
-			<version>1.0.0</version>
+			<version>3.0.9</version>
 		</dependency>
 	</dependencies>
 </project>
